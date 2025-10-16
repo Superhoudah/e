@@ -1,9 +1,1 @@
-Clear-History
-if (Get-Command -Name Get-PSReadlineOption -ErrorAction SilentlyContinue) {
-    [Microsoft.PowerShell.PSConsoleReadLine]::ClearHistory()
-    $path = (Get-PSReadlineOption).HistorySavePath
-    Remove-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue
-}
-Remove-Item -LiteralPath "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt" -Force -ErrorAction SilentlyContinue
-Remove-Item -LiteralPath "$env:APPDATA\Microsoft\PowerShell\PSReadLine\ConsoleHost_history.txt" -Force -ErrorAction SilentlyContinue
-Get-History
+Clear-History; if (Get-Command -Name Get-PSReadlineOption -ErrorAction SilentlyContinue) { [Microsoft.PowerShell.PSConsoleReadLine]::ClearHistory(); $path = (Get-PSReadlineOption).HistorySavePath; Remove-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue }; Remove-Item -LiteralPath "$env:APPDATA\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt" -Force -ErrorAction SilentlyContinue; Remove-Item -LiteralPath "$env:APPDATA\Microsoft\PowerShell\PSReadLine\ConsoleHost_history.txt" -Force -ErrorAction SilentlyContinue; Get-History
